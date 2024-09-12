@@ -25,7 +25,7 @@ export default function MainSection({showForm, onShow}){
                     <textarea className="w-full h-24 p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
 
                     <h2 className="mb-1 mt-6 font-bold uppercase md:text-xl text-stone-500">date</h2>
-                    <input className="w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
+                    <input type="date" className="w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
                 </form>
             </div>
         )
