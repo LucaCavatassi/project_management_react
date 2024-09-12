@@ -2,7 +2,7 @@ import classes from "./MainSection.module.css"
 import logo from "../assets/no-projects.png"
 import { useState } from "react";
 
-export default function MainSection({showForm, onShow}){
+export default function MainSection({showForm, onShow, onFormSubmit}){
     function LoadScreen() {
         return (
             <div className="flex-grow text-gray-700 mt-24 items-center flex flex-col">
@@ -14,23 +14,48 @@ export default function MainSection({showForm, onShow}){
         )
     }
 
-    function FormScreen() {
+    function FormScreen() {    
+        const [title, setTitle] = useState("");
+        const [description, setDescription] = useState("");
+        const [date, setDate] = useState("");
+
+        function handleForm() {
+            const formData = { title, description, date };
+            onFormSubmit(formData)
+        }
+
+
+
         return (
             <div className="flex-grow text-gray-700 mt-28 ps-20 pe-36 flex flex-col">
                 <div className="ms-auto mb-2">
                     <button className="text-stone-700 hover:text-red-500 me-4">Cancel</button>
-                    <button className="px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950">Save</button>
+                    <button onClick={handleForm} className="px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950">Save</button>
                 </div>
 
                 <form>
-                    <label for="title" className="text-lg font-bold uppercase text-stone-500">title</label>
-                    <input name="title" type="text" className="w-full p-1 mb-6 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
+                    <label htmlFor="title" className="text-lg font-bold uppercase text-stone-500">title</label>
+                    <input 
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)} 
+                        name="title" 
+                        type="text" 
+                        className="w-full p-1 mb-6 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
 
-                    <label for="description" className="mb-1 mt-8 text-lg font-bold uppercase text-stone-500">description</label>
-                    <textarea name="description" className="w-full h-24 p-1 mb-5 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
+                    <label htmlFor="description" className="mb-1 mt-8 text-lg font-bold uppercase text-stone-500">description</label>
+                    <textarea 
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)} 
+                        name="description" 
+                        className="w-full h-24 p-1 mb-5 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
 
-                    <label for="date" className="mb-1 mt-6 text-lg font-bold uppercase text-stone-500">date</label>
-                    <input name="date" type="date" className="w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
+                    <label htmlFor="date" className="mb-1 mt-6 text-lg font-bold uppercase text-stone-500">date</label>
+                    <input 
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}  
+                        name="date" 
+                        type="date" 
+                        className="w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
                 </form>
             </div>
         )
