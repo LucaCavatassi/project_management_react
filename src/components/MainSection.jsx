@@ -17,8 +17,10 @@ export default function MainSection({showForm, onShow}){
     function FormScreen() {
         return (
             <div className="flex-grow text-gray-700 mt-28 ps-20 pe-36 flex flex-col">
-                <button className="text-stone-700 hover:text-red-500">Cancel</button>
-                <button className="px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950">Save</button>
+                <div className="ms-auto mb-2">
+                    <button className="text-stone-700 hover:text-red-500 me-4">Cancel</button>
+                    <button className="px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950">Save</button>
+                </div>
 
                 <form>
                     <label for="title" className="text-lg font-bold uppercase text-stone-500">title</label>
