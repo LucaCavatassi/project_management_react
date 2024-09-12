@@ -17,15 +17,18 @@ export default function MainSection({showForm, onShow}){
     function FormScreen() {
         return (
             <div className="flex-grow text-gray-700 mt-28 ps-20 pe-36 flex flex-col">
+                <button className="text-stone-700 hover:text-red-500">Cancel</button>
+                <button className="px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950">Save</button>
+
                 <form>
-                    <h2 className="mb-1 font-bold uppercase md:text-xl text-stone-500">title</h2>
-                    <input type="text" className="w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
+                    <label for="title" className="text-lg font-bold uppercase text-stone-500">title</label>
+                    <input name="title" type="text" className="w-full p-1 mb-6 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
 
-                    <h2 className="mb-1 mt-7 font-bold uppercase md:text-xl text-stone-500">description</h2>
-                    <textarea className="w-full h-24 p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
+                    <label for="description" className="mb-1 mt-8 text-lg font-bold uppercase text-stone-500">description</label>
+                    <textarea name="description" className="w-full h-24 p-1 mb-5 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
 
-                    <h2 className="mb-1 mt-6 font-bold uppercase md:text-xl text-stone-500">date</h2>
-                    <input type="date" className="w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
+                    <label for="date" className="mb-1 mt-6 text-lg font-bold uppercase text-stone-500">date</label>
+                    <input name="date" type="date" className="w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
                 </form>
             </div>
         )
