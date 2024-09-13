@@ -38,7 +38,7 @@ export default function MainSection({showForm, onShow, onFormSubmit}){
                     <input 
                         value={title}
                         onChange={(e) => setTitle(e.target.value)} 
-                        name="title" 
+                        id="title" 
                         type="text" 
                         className="w-full p-1 mb-6 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
 
@@ -46,14 +46,14 @@ export default function MainSection({showForm, onShow, onFormSubmit}){
                     <textarea 
                         value={description}
                         onChange={(e) => setDescription(e.target.value)} 
-                        name="description" 
+                        id="description" 
                         className="w-full h-24 p-1 mb-5 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
 
                     <label htmlFor="date" className="mb-1 mt-6 text-lg font-bold uppercase text-stone-500">date</label>
                     <input 
                         value={date}
                         onChange={(e) => setDate(e.target.value)}  
-                        name="date" 
+                        id="date" 
                         type="date" 
                         className="w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
                 </form>
