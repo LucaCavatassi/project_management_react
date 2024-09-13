@@ -1,3 +1,4 @@
+import { useState } from "react";
 import classes from "./DetailSection.module.css"
 
 export default function DetailSection ({projectDetail}) {
@@ -10,6 +11,19 @@ export default function DetailSection ({projectDetail}) {
         year: "numeric"
     });
 
+    const[singleTask, setSingleTask] = useState("");
+    
+
+    const [tasks, setTasks] = useState([]); 
+
+    function addTask (data) {
+        setTasks((prev) => [...prev, data]);
+        setSingleTask('');
+    }
+
+    function deleteTask(index) {
+        setTasks((prev) => prev.filter((_, i) => i !== index));
+    }
     
 
     return (
@@ -23,17 +37,18 @@ export default function DetailSection ({projectDetail}) {
 
             <div>
                 <label htmlFor="tasks" className="text-3xl font-bold text-stone-700 my-4 mb-5 mt6 block">Tasks</label>
-                <input id="tasks" className="w-3/4 p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
-                <button className="text-stone-700 hover:text-green-500 hover:cursor-pointer ms-6">&#43; Add Task</button>
+                <input onChange={(e)=> setSingleTask(e.target.value)} value={singleTask} id="tasks" className="w-3/4 p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
+                <button onClick={()=> addTask(singleTask)} className="text-stone-700 hover:text-green-500 hover:cursor-pointer ms-6">&#43; Add Task</button>
             </div>
 
             <div className="mt-8 bg-stone-100 w-full h-64 overflow-auto rounded">
-                <div className="flex justify-between">
-                    <p className="text-stone-800 text-lg my-4 ms-4">{formattedDate}</p>
-                    <button className="text-stone-700 hover:text-red-500 me-8">Clear</button>
-                </div>
+                    {tasks.map((data, index) => (
+                        <div key={index} className="flex justify-between">
+                            <p className="text-stone-800 text-lg my-4 ms-4 capitalize">{data}</p>
+                            <button onClick={() => deleteTask(index)} className="text-stone-700 hover:text-red-500 me-8">Clear</button>
+                        </div>
+                    ))}             
             </div>
-
         </div>
     )
 }
