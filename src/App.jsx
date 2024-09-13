@@ -4,20 +4,26 @@ import { useState } from "react";
 
 function App() {
   const [showForm, setShowForm] = useState(false);
-  const [formData, setFormData] = useState();
+  const [allProjects, setAllProjects] = useState([]);
+  const [showDetail, setShowDetail] = useStae(false);
+
 
   function handleChange(){
       setShowForm(true)
   }
 
   function handleFormSubmit(data) {
+    setAllProjects((prevProjects) => [...prevProjects, data]);
+  }
+
+  function handleDetail(data){
     console.log(data);
-    setFormData(data)
+    
   }
 
   return (
     <div className="pt-20 h-screen flex">
-      <Sidebar onShow={handleChange} formData={formData}/>
+      <Sidebar onShow={handleChange} formData={allProjects} onNameClick={handleDetail}/>
       <MainSection onShow={handleChange} showForm={showForm} onFormSubmit={handleFormSubmit}/>
     </div>
   );
