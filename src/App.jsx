@@ -1,5 +1,5 @@
 import Sidebar from "./components/Sidebar.jsx"
-import MainSection from "./components/MainSection.jsx"
+import FormSection from "./components/FormSection.jsx"
 import { useState } from "react";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="pt-20 h-screen flex">
       <Sidebar onShow={handleChange} formData={allProjects} onNameClick={handleDetail}/>
-      <MainSection onShow={handleChange} showForm={showForm} onFormSubmit={handleFormSubmit}/>
+      <FormSection onShow={handleChange} showForm={showForm} onFormSubmit={handleFormSubmit}/>
     </div>
   );
 }
