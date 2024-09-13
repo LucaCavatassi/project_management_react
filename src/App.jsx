@@ -11,7 +11,8 @@ function App() {
   const [projectDetail, setProjectDetail] = useState();
 
   function handleChange(){
-      setShowForm(true)
+      setShowDetail(false);
+      setShowForm(true);
   }
 
   function handleFormSubmit(data) {
@@ -19,15 +20,13 @@ function App() {
   }
 
   function handleDetail(data){
-    console.log(data);
-    setShowDetail(true);
     setProjectDetail(data);
-    
+    setShowDetail(true);
   }
 
   function MainSection() {
     if (showDetail) {
-      return <DetailSection/>
+      return <DetailSection projectDetail={projectDetail}/>
     } else {
       return <FormSection onShow={handleChange} showForm={showForm} onFormSubmit={handleFormSubmit}/>
     }

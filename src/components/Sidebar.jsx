@@ -1,8 +1,8 @@
 import classes from "./Sidebar.module.css"
 
 export default function Sidebar({onShow, formData, onNameClick}){
-    function showDetails() {
-        onNameClick(formData);
+    function showDetails(data, index) {
+        onNameClick(data, index);
     }
 
     return (
@@ -11,7 +11,7 @@ export default function Sidebar({onShow, formData, onNameClick}){
             <button onClick={onShow} className="px-4 py-2 mt-7 ms-7 text-xs md:text-base rounded-md bg-stone-700 text-stone-400 hover:bg-stone-600 hover:text-stone-100">&#43; Add Project</button>
             
             {formData.map((data, index) => (
-                <p key={index} onClick={showDetails} className="text-white capitalize py-2 mt-5 font-semibold ms-5 px-2 w-4/5 hover:bg-black hover:cursor-pointer">{data?.title}</p>
+                <p key={index} onClick={() => showDetails(data,index)} className="text-white capitalize py-2 mt-5 font-semibold ms-5 px-2 w-4/5 hover:bg-black hover:cursor-pointer">{data?.title}</p>
             ))}
         </div>
     )
