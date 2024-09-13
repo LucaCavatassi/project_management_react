@@ -4,9 +4,10 @@ import { useState } from "react";
 
 function App() {
   const [showForm, setShowForm] = useState(false);
-  const [allProjects, setAllProjects] = useState([]);
-  const [showDetail, setShowDetail] = useStae(false);
+  const [showDetail, setShowDetail] = useState(false);
 
+  const [allProjects, setAllProjects] = useState([]);
+  const [projectDetail, setProjectDetail] = useState();
 
   function handleChange(){
       setShowForm(true)
@@ -18,6 +19,8 @@ function App() {
 
   function handleDetail(data){
     console.log(data);
+    setShowDetail(true);
+    setProjectDetail(data);
     
   }
 
