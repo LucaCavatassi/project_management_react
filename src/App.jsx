@@ -20,6 +20,7 @@ function App() {
   }
 
   function handleDetail(data){
+    setShowForm(false);
     setProjectDetail(data);
     setShowDetail(true);
   }
