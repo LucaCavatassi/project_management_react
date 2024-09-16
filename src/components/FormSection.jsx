@@ -38,15 +38,22 @@ export default function MainSection({showForm, onShow, onFormSubmit}){
         modal.current.open();
     }
 
+    function emptyFields() {
+        setTitle("");
+        setDescription("");
+        setDate("");
+    }
+
         return (
             <>  
                 <Modal ref={modal}> 
-                    <h2>Invalid input!</h2>
-                    <p>Oops....something is missing.</p>
-                    <p>Provide a value for every input field.</p>
+                    <h2 className="text-3xl font-bold text-stone-700 my-4">Invalid input!</h2>
+                    <p className="text-stone-600 mb-4">Oops....something is missing.</p>
+                    <p className="text-stone-600 mb-4">Provide a value for every input field.</p>
                 </Modal>
                 <div className="flex-grow text-gray-700 mt-28 ps-20 pe-36 flex flex-col">
                     <div className="ms-auto mb-2">
+                        <button onClick={emptyFields} className="text-stone-700 hover:text-red-500 me-8">Clear</button>
                         <button onClick={ isEmpty ? handleModal : handleForm} className="px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950">Save</button>
                     </div>
 
