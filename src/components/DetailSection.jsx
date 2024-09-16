@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./DetailSection.module.css"
 
-export default function DetailSection ({projectDetail}) {
+export default function DetailSection ({projectDetail, onDelete}) {
     const dateStr = projectDetail.date
     const date = new Date(dateStr)
 
@@ -31,6 +31,8 @@ export default function DetailSection ({projectDetail}) {
             <h2 className="text-5xl font-bold text-stone-700 my-4">{projectDetail.title}</h2>
             <p className="text-stone-600 mb-4">{formattedDate}</p>
             <p className="mb-4">{projectDetail.description}</p>
+            <button onClick={onDelete} className="text-stone-700 hover:text-red-500 me-8">Delete</button>
+
 
             <hr className="border rounded bg-stone-300 h-1" />
 

@@ -25,9 +25,14 @@ function App() {
     setShowDetail(true);
   }
 
+  function handleDeleteProject(title) {
+    setAllProjects((prevProjects) => prevProjects.filter((project) => project.title !== title));
+    setShowDetail(false); // Optionally close the detail view
+  }
+
   function MainSection() {
     if (showDetail) {
-      return <DetailSection projectDetail={projectDetail}/>
+      return <DetailSection projectDetail={projectDetail} onDelete={() => handleDeleteProject(projectDetail.title)}/>
     } else {
       return <FormSection onShow={handleChange} showForm={showForm} onFormSubmit={handleFormSubmit}/>
     }
