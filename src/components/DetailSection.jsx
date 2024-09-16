@@ -28,10 +28,12 @@ export default function DetailSection ({projectDetail, onDelete}) {
 
     return (
         <div className="pt-10 px-24 flex-grow h-full">
-            <h2 className="text-5xl font-bold text-stone-700 my-4">{projectDetail.title}</h2>
-            <p className="text-stone-600 mb-4">{formattedDate}</p>
-            <p className="mb-4">{projectDetail.description}</p>
-            <button onClick={onDelete} className="text-stone-700 hover:text-red-500 me-8">Delete</button>
+            <div className="flex justify-between items-center">
+                <h2 className="text-5xl font-bold text-stone-700 my-4">{projectDetail.title}</h2>
+                <button onClick={onDelete} className="text-stone-700 hover:text-red-500">Delete</button>
+            </div>
+                <p className="text-stone-600 mb-4">{formattedDate}</p>
+                <p className="mb-4">{projectDetail.description}</p>
 
 
             <hr className="border rounded bg-stone-300 h-1" />
